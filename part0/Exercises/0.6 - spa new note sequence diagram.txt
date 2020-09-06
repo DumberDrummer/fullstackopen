@@ -1,0 +1,10 @@
+note over browser
+spa.js event handler onsubmit
+collects note and formulates payload
+adds note to DOM
+resets notes form
+and triggers HTTP POST
+end note
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+

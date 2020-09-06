@@ -1,0 +1,22 @@
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server-->browser: HTML
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server --> browser: main.css
+browser->server:HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server-->browser: spa.js
+
+note over browser
+spa.js executes and 
+formulates request to server
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: data.json contents
+
+note over browser
+json response header triggers 
+event handler that renders notes
+end note
+browser->server:HTTP GET https://studies.cs.helsinki.fi/favicon.ico
+server-->browser: favicon.ico
+
