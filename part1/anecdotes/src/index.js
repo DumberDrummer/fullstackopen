@@ -24,18 +24,19 @@ const App = (props) => {
       
         <button onClick={()=>addVote(selected)}>Vote!</button>
       </p>
-      <MostPopular visible={(votes.reduce((a,b)=>{return a+b})>0) }  mostpopularanecdote = {anecdotes[votes.indexOf(Math.max(...votes))]} />
+      <MostPopular visible={(votes.reduce((a,b)=>{return a+b})>0) }  mostpopularanecdote = {anecdotes[votes.indexOf(Math.max(...votes))]} count = {Math.max(...votes)}  />
     </div>
   )
 
 }
 
-const MostPopular = ({visible,mostpopularanecdote}) => {
+const MostPopular = ({visible,mostpopularanecdote,count}) => {
   if (visible) {
     return (
       <>
       <h1>Most Popular Anecdote</h1>
       <p>{mostpopularanecdote}</p>
+      <p>This anecdote has {count} votes!</p>
       </>
     )
   }
