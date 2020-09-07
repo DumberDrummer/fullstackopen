@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import ReactDOM from 'react-dom'
 
 const Header = (props) => {
@@ -30,6 +30,7 @@ const Content = (props) =>{
 }
 
 const App = () => {
+  useState(0)
   const course = {
     name: 'Half Stack application development',
     parts: [
