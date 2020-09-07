@@ -26,7 +26,7 @@ const FeedbackStatistics = ({feedbackTypes}) =>{
   const feedbackTotal = feedbackTypes[0].feedback + feedbackTypes[1].feedback + feedbackTypes[2].feedback
   const feedbackSum = feedbackTypes[0].feedback + feedbackTypes[2].feedback*(-1)
   const positiveFeedbackPercentage = feedbackTypes[0].feedback / feedbackTotal * 100
-  if (feedbackTotal == 0) {
+  if (feedbackTotal === 0) {
     return (<div>
       <h1>Feedback Statistics</h1>
       <p>No Feedback Received</p>
