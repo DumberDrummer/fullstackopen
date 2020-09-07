@@ -15,21 +15,41 @@ const FeedbackSubmissions = ({feedbackTypes}) =>{
   )
 }
 
-const FeedbackDisplay = ({name,count}) => {
+const FeedbackStatistic = ({name,value}) => {
   return(
-    <p>
-    {name}: {count}
-    </p>
+    <tr>
+    <td>{name}:</td><td>{value}</td>
+    </tr>
   )
 }
 const FeedbackStatistics = ({feedbackTypes}) =>{
+  const feedbackTotal = feedbackTypes[0].feedback + feedbackTypes[1].feedback + feedbackTypes[2].feedback
+  const feedbackSum = feedbackTypes[0].feedback + feedbackTypes[2].feedback*(-1)
+  const positiveFeedbackPercentage = feedbackTypes[0].feedback / feedbackTotal * 100
+  if (feedbackTotal == 0) {
+    return (<div>
+      <h1>Feedback Statistics</h1>
+      <p>No Feedback Received</p>
+    </div>)
+  }
+  
   return (
     <div>
       <h1>Feedback Statistics</h1>
-      <FeedbackDisplay name = {feedbackTypes[0].name} count = {feedbackTypes[0].feedback} />
-      <FeedbackDisplay name = {feedbackTypes[1].name} count = {feedbackTypes[1].feedback} />
-      <FeedbackDisplay name = {feedbackTypes[2].name} count = {feedbackTypes[2].feedback} />
-    </div>
+      <table>
+        <tbody>
+        <FeedbackStatistic name = {feedbackTypes[0].name} value = {feedbackTypes[0].feedback} />
+      <FeedbackStatistic name = {feedbackTypes[1].name} value = {feedbackTypes[1].feedback} />
+      <FeedbackStatistic name = {feedbackTypes[2].name} value = {feedbackTypes[2].feedback} />
+      <FeedbackStatistic name = "Total" value = {feedbackTotal} />
+      <FeedbackStatistic name = "Average" value=  {(feedbackSum / feedbackTotal).toFixed(2)} />
+      <FeedbackStatistic name = "Percent Positive" value = {positiveFeedbackPercentage.toFixed(2) + " %"} />
+   
+        </tbody>
+      </table>
+
+
+ </div>
   )
 }
 
