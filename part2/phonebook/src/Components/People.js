@@ -1,12 +1,11 @@
 import React from 'react'
 
-const Person = ({person}) =>{
+const Person = ({person,PersonRemover}) =>{
     return(
-    <tr key={person.name}><td>{person.name}</td><td>{`   #`}{person.number}</td></tr>
+    <tr key={person.name}><td>{person.name}</td><td>{`   #`}{person.number}</td><td><button onClick={()=>PersonRemover(person)}>Delete</button></td></tr>
     )
 }
-
-const People = ({people}) => {
+const People = ({people,PersonRemover}) => {
     return(
         <table>
             <thead>
@@ -16,11 +15,9 @@ const People = ({people}) => {
                 </tr>
             </thead>
             <tbody>
-            {people.map(person => <Person key={person.name} person= {person} />)}
+            {people.map(person => <Person key={person.name} person= {person} PersonRemover = {PersonRemover} />)}
             </tbody>
-
         </table>
     )
 }
-
 export default People;
